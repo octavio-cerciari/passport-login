@@ -41,6 +41,18 @@ export class ExpressServer {
      *    1. allow to change client_id and client_secret after application startup
      *    2. allow to read oauth2 app registrations from a datastore
      */
+    config['facebook-login'].clientID = process.env.FACEBOOK_CLIENT_ID
+    config['facebook-login'].clientID = process.env.FACEBOOK_CLIENT_SECRET
+
+    config['google-login'].clientID = process.env.GOOGLE_CLIENT_ID
+    config['google-login'].clientID = process.env.GOOGLE_CLIENT_SECRET
+
+    config['twitter-login'].clientID = process.env.OAUTH2_CLIENT_ID
+    config['twitter-login'].clientID = process.env.OAUTH2_CLIENT_ID
+
+    config.oauth2.clientID = process.env.OAUTH2_CLIENT_ID
+    config.oauth2.clientID = process.env.OAUTH2_CLIENT_ID
+
     this.lbApp.bind('facebookOAuth2Options').to(config['facebook-login']);
     this.lbApp.bind('googleOAuth2Options').to(config['google-login']);
     this.lbApp.bind('twitterOAuthOptions').to(config['twitter-login']);

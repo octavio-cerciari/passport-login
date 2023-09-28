@@ -84,8 +84,8 @@ export class ExpressServer {
    */
   public async start() {
     await this.lbApp.start();
-    const port = this.lbApp.restServer.config.port ?? 3030;
-    const host = this.lbApp.restServer.config.host ?? 'localhost';
+    const port = 3030;
+    const host = 'localhost';
     this.server = this.webApp.listen(port, host);
     await once(this.server, 'listening');
     const add = <AddressInfo>this.server.address();

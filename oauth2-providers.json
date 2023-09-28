@@ -6,6 +6,7 @@
         "verified", "email", "updated_time", "displayName", "id"],
         "clientID": "{facebook-client-id}",
         "clientSecret": "{facebook-client-secret}",
+        "consumerKey": "{facebook-consumer-key}",
         "callbackURL": "/api/auth/thirdparty/facebook/callback",
         "authPath": "/api/auth/thirdparty/facebook",
         "callbackPath": "/api/auth/thirdparty/facebook/callback",
@@ -20,6 +21,7 @@
         "strategy": "OAuth2Strategy",
         "clientID": "{google-client-id}",
         "clientSecret": "{google-client-id}",
+        "consumerKey": "{google-consumer-key}",
         "callbackURL": "/api/auth/thirdparty/google/callback",
         "authPath": "/api/auth/thirdparty/google",
         "callbackPath": "/api/auth/thirdparty/google/callback",
@@ -55,6 +57,7 @@
         "failureFlash": true,
         "clientID": "{oauth2-client-id}",
         "clientSecret": "{oauth2-client-id}",
+        "consumerKey": "{oauth2-consumer-key}",
         "callbackURL": "http://localhost:3000/api/auth/thirdparty/oauth2/callback",
         "authorizationURL": "http://localhost:9000/oauth/dialog",
         "tokenURL": "http://localhost:9000/oauth/token"

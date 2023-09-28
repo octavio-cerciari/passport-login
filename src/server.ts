@@ -33,8 +33,7 @@ export class ExpressServer {
     this.webApp = require('../web-application/express-app');
     // LB4 App
     var config = require('../oauth2-providers.json');
-    this.lbApp = new OAuth2LoginApplication(config);
-    console.log(config)
+
     /**
      * bind the oauth2 options to lb app
      * TODO:
@@ -42,22 +41,29 @@ export class ExpressServer {
      *    2. allow to read oauth2 app registrations from a datastore
      */
     config['facebook-login'].clientID = process.env.FACEBOOK_CLIENT_ID
-    config['facebook-login'].clientID = process.env.FACEBOOK_CLIENT_SECRET
+    config['facebook-login'].clientSecret = process.env.FACEBOOK_CLIENT_SECRET
+    config['facebook-login'].consumerKey = process.env.FACEBOOK_KEY
 
     config['google-login'].clientID = process.env.GOOGLE_CLIENT_ID
-    config['google-login'].clientID = process.env.GOOGLE_CLIENT_SECRET
+    config['google-login'].clientSecret = process.env.GOOGLE_CLIENT_SECRET
+    config['google-login'].consumerKey = process.env.GOOGLE_KEY
 
-    config['twitter-login'].clientID = process.env.OAUTH2_CLIENT_ID
-    config['twitter-login'].clientID = process.env.OAUTH2_CLIENT_ID
+    config['twitter-login'].clientID = process.env.TWITTER_CLIENT_ID
+    config['twitter-login'].consumerSecret = process.env.TWITTER_CONSUMER_SECRET
+    config['twitter-login'].consumerKey = process.env.TWITTER_CONSUMER_KEY
 
-    config.oauth2.clientID = process.env.OAUTH2_CLIENT_ID
-    config.oauth2.clientID = process.env.OAUTH2_CLIENT_ID
+    config.oauth2.clientID = process.env.OAUTH2_CLIENT_ID 
+    config.oauth2.clientSecret = process.env.OAUTH2_CLIENT_SECRET
+    config.oauth2.consumerKey = process.env.OAUTH2_KEY
 
+
+    console.log(config)
+    this.lbApp = new OAuth2LoginApplication(config);
     this.lbApp.bind('facebookOAuth2Options').to(config['facebook-login']);
     this.lbApp.bind('googleOAuth2Options').to(config['google-login']);
     this.lbApp.bind('twitterOAuthOptions').to(config['twitter-login']);
     this.lbApp.bind('customOAuth2Options').to(config.oauth2);
-
+    console.log(this.lbApp)
 
     // Serve static files in the public folder
     this.webApp.use(express.static(path.join(__dirname, '../public')));
@@ -78,7 +84,7 @@ export class ExpressServer {
    */
   public async start() {
     await this.lbApp.start();
-    const port = this.lbApp.restServer.config.port ?? 3000;
+    const port = this.lbApp.restServer.config.port ?? 3030;
     const host = this.lbApp.restServer.config.host ?? 'localhost';
     this.server = this.webApp.listen(port, host);
     await once(this.server, 'listening');

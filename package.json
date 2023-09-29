@@ -1,24 +1,22 @@
 {
-  "name": "example-passport-login",
+  "name": "passport-login",
   "description": "An example to demonstrate authentication with passport strategies",
   "version": "5.1.3",
   "keywords": [
     "loopback",
-    "LoopBack",
-    "example",
-    "tutorial",
+    "mongodb",
     "passport",
     "authentication"
   ],
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "author": "IBM Corp. and LoopBack contributors",
+  "author": "Octavio Cerciari",
   "copyright.owner": "IBM Corp. and LoopBack contributors",
   "repository": {
     "type": "git",
-    "url": "https://github.com/loopbackio/loopback-next.git",
-    "directory": "examples/passport-login"
+    "url": "https://github.com/octavio-cerciari/passport-login",
+    "directory": "passport-login"
   },
   "engines": {
     "node": "16 || 18 || 20"

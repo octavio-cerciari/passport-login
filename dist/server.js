@@ -44,13 +44,11 @@ class ExpressServer {
         config.oauth2.clientID = process.env.OAUTH2_CLIENT_ID;
         config.oauth2.clientSecret = process.env.OAUTH2_CLIENT_SECRET;
         config.oauth2.consumerKey = process.env.OAUTH2_KEY;
-        console.log(config);
         this.lbApp = new application_1.OAuth2LoginApplication(config);
         this.lbApp.bind('facebookOAuth2Options').to(config['facebook-login']);
         this.lbApp.bind('googleOAuth2Options').to(config['google-login']);
         this.lbApp.bind('twitterOAuthOptions').to(config['twitter-login']);
         this.lbApp.bind('customOAuth2Options').to(config.oauth2);
-        console.log(this.lbApp);
         // Serve static files in the public folder
         this.webApp.use(express_1.default.static(path.join(__dirname, '../public')));
         /**

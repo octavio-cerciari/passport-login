@@ -96,7 +96,7 @@ tslib_1.__decorate([
         description: 'signup user locally',
         required: true,
         content: {
-            'application/x-www-form-urlencoded': { schema: CredentialsSchema },
+            'application/json': { schema: CredentialsSchema },
         },
     })),
     tslib_1.__param(1, (0, core_1.inject)(rest_1.RestBindings.Http.RESPONSE)),
@@ -111,7 +111,7 @@ tslib_1.__decorate([
         description: 'login to create a user session',
         required: true,
         content: {
-            'application/x-www-form-urlencoded': { schema: CredentialsSchema },
+            'application/json': { schema: CredentialsSchema },
         },
     })),
     tslib_1.__param(1, (0, core_1.inject)(security_1.SecurityBindings.USER)),

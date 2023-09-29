@@ -124,6 +124,8 @@ app.get('/signupOptions', function (req, res, next) {
  * render login page
  */
 app.get('/signup', function (req, res, next) {
+  console.log("ENTROU SIGNUP GET")
+  console.log(req);
   res.render('pages/signup', {
     user: req.user,
     url: req.url,
@@ -134,6 +136,8 @@ app.get('/signup', function (req, res, next) {
  * submit signup request
  */
 app.post('/users/signup', urlencodedParser, function (req, res, next) {
+  console.log("ENTROU SIGNUP POST")
+  console.log(req);
   req.url = '/api/signup';
   req.headers['accept'] = 'text/json';
   res.on('User Exists', msg => {

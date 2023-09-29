@@ -58,7 +58,7 @@ export class UserLoginController {
       description: 'signup user locally',
       required: true,
       content: {
-        'application/x-www-form-urlencoded': {schema: CredentialsSchema},
+        'application/json': {schema: CredentialsSchema},
       },
     })
     credentials: Credentials,
@@ -106,7 +106,7 @@ export class UserLoginController {
       description: 'login to create a user session',
       required: true,
       content: {
-        'application/x-www-form-urlencoded': {schema: CredentialsSchema},
+        'application/json': {schema: CredentialsSchema},
       },
     })
     credentials: Credentials,

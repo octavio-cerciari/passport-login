@@ -9,6 +9,7 @@ import {ApplicationConfig} from '@loopback/core';
 import {RepositoryMixin} from '@loopback/repository';
 import {RestApplication} from '@loopback/rest';
 import {CrudRestComponent} from '@loopback/rest-crud';
+import {RestExplorerComponent} from '@loopback/rest-explorer';
 import {ServiceMixin} from '@loopback/service-proxy';
 import {MySequence} from './sequence';
 
@@ -19,10 +20,11 @@ export class OAuth2LoginApplication extends BootMixin(
     super(options);
 
     // Set up the custom sequence
-    this.sequence(MySequence);
-
+    
+    this.component(RestExplorerComponent);
     this.component(AuthenticationComponent);
     this.component(CrudRestComponent);
+    this.sequence(MySequence);
 
     this.projectRoot = __dirname;
     // Customize @loopback/boot Booter Conventions here

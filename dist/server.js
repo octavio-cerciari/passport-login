@@ -22,6 +22,7 @@ const application_1 = require("./application");
  */
 class ExpressServer {
     constructor(options = {}) {
+        // Explorer
         // Express Web App
         this.webApp = require('../web-application/express-app');
         // LB4 App

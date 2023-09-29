@@ -29,6 +29,7 @@ export class ExpressServer {
   public url: String;
 
   constructor(options: ApplicationConfig = {}) {
+    // Explorer
     // Express Web App
     this.webApp = require('../web-application/express-app');
     // LB4 App

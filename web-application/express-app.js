@@ -78,7 +78,7 @@ function requireLogin(req, res, next) {
 /**
  * Render Index page
  */
-app.get('**', function (req, res, next) {
+app.get('/', function (req, res, next) {
   res.render('pages/index', {user: req.user, url: req.url});
 });
 

@@ -19,12 +19,11 @@ tslib_1.__exportStar(require("./server"), exports);
 async function serverConfig(
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 oauth2Providers) {
-    var _a;
     const config = {
         rest: {
-            port: +((_a = process.env.PORT) !== null && _a !== void 0 ? _a : 3000),
-            host: process.env.HOST,
-            protocol: 'http',
+            port: 3030,
+            host: 'localhost',
+            protocol: 'https',
             gracePeriodForClose: 5000,
             openApiSpec: {
                 setServersFromRequest: true,

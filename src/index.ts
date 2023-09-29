@@ -21,9 +21,9 @@ export async function serverConfig(
 ): Promise<ApplicationConfig> {
   const config = {
     rest: {
-      port: +(process.env.PORT ?? 3000),
-      host: process.env.HOST,
-      protocol: 'http',
+      port: 3030,
+      host: 'localhost',
+      protocol: 'https',
       gracePeriodForClose: 5000, // 5 seconds
       openApiSpec: {
         setServersFromRequest: true,
